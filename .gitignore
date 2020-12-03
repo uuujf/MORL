@@ -1,0 +1,35 @@
+## logs
+*log/
+*logs/
+*Log/
+*Logs/
+*.err
+*.out
+*.sh
+
+## misc
+.DS_Store
+*.swp
+*.pth.tar
+*__pycache__/
+*.ipynb_checkpoints/
+*.idea/
+*.ropeproject/
+*.vscode/
+*.vim/
+
+## latex
+*.aux
+*.out
+*.toc
+*.log
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.xdv
+*.dvi
+*.gz
+*.ps
