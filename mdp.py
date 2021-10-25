@@ -141,7 +141,7 @@ class MOUCBVI(object):
         V = np.zeros(self.S)
         for h in np.arange(self.H-1, -1, -1):
             Q[h] = reward[h] + bonus + np.sum(empi_transit * V.reshape((1, 1, self.S)), axis=2)
-            Q[h] = np.minimum(Q[h], H)
+            Q[h] = np.minimum(Q[h], self.H)
             V = np.amax(Q[h], axis=1)
             pi[h] = np.eye(self.A)[np.argmax(Q[h], axis=1)]
         return Q, pi
@@ -182,10 +182,10 @@ if __name__ == '__main__':
     import matplotlib.pyplot as plt
 
     plt.plot(range(K+1), regrets, "-r")
-    plt.plot(range(K+1), regrets_stay, "-b")
+    plt.plot(range(K+1), regrets_stay, "--b")
 
-    plt.xlabel("# episodes")
-    plt.ylabel("total regret")
+    plt.xlabel("number of episodes", fontsize=15)
+    plt.ylabel("total regret", fontsize=15)
     plt.legend(["MO-UCBVI", "Best stationary policy"], fontsize=15)
 
     plt.savefig("regret.pdf")
